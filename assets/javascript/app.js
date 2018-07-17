@@ -29,9 +29,7 @@ function addNewButton(){
     return false;
     });
 }
-// Function to remove last action button
-    // Doesnt work properly yet removes all of the added buttons
-    // rather than just the last
+
 function removeLastButton(){
     $("removeGif").on("click", function(){
     actions.pop(action);
@@ -39,7 +37,7 @@ function removeLastButton(){
     return false;
     });
 }
-// Function that displays all of the gifs
+// Function for displays all of the gifs
 function displayGifs(){
     var action = $(this).attr("data-name");
     
@@ -50,7 +48,9 @@ function displayGifs(){
         method: 'GET'
     })
     .done(function(response) {
-        console.log(response); // console test to make sure something returns
+         // console test to make sure something returns
+        console.log(response); 
+       
        
         var results = response.data; //shows results of gifs
         if (results == ""){
@@ -58,7 +58,8 @@ function displayGifs(){
         }
         for (var i=0; i <results.length; i++){
 
-            var gifDiv = $("<div>"); //div for the gifs to go inside
+            var gifDiv = $("<div>"); 
+            //div for the gifs to go inside
             gifDiv.addClass("gifDiv");
             // pulling rating of gif
             var gifRating = $("<p>").text("Rating: " + results[i].rating);
